@@ -1,5 +1,5 @@
-import { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import {
   Building2,
   Menu,
@@ -11,8 +11,8 @@ import {
   Users,
   Package,
   Wallet,
-  LayoutDashboard
-} from 'lucide-react';
+  LayoutDashboard,
+} from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import {
@@ -23,32 +23,32 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Progress } from "@/components/ui/progress";
-import { WorkforceManagement } from '@/components/pages/WorkforceManagement';
-import { MaterialsManagement } from '@/components/pages/MaterialsManagement';
-import { BudgetManagement } from '@/components/pages/BudgetManagement';
-import { projects, getProject } from '@/lib/mock-data';
+import { WorkforceManagement } from "@/components/pages/WorkforceManagement";
+import { MaterialsManagement } from "@/components/pages/MaterialsManagement";
+import { BudgetManagement } from "@/components/pages/BudgetManagement";
+import { projects, getProject } from "@/lib/mock-data";
 
-type Page = 'dashboard' | 'workforce' | 'materials' | 'budget';
+type Page = "dashboard" | "workforce" | "materials" | "budget";
 
 function App() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
   const [selectedProject, setSelectedProject] = useState(projects[0]);
-  const [currentPage, setCurrentPage] = useState<Page>('dashboard');
+  const [currentPage, setCurrentPage] = useState<Page>("dashboard");
 
   const navItems = [
-    { id: 'dashboard', name: 'Dashboard', icon: LayoutDashboard },
-    { id: 'workforce', name: 'Workforce', icon: Users },
-    { id: 'materials', name: 'Materials', icon: Package },
-    { id: 'budget', name: 'Budget', icon: Wallet },
+    { id: "dashboard", name: "Dashboard", icon: LayoutDashboard },
+    { id: "workforce", name: "Workforce", icon: Users },
+    { id: "materials", name: "Materials", icon: Package },
+    { id: "budget", name: "Budget", icon: Wallet },
   ];
 
   const renderPage = () => {
     switch (currentPage) {
-      case 'workforce':
+      case "workforce":
         return <WorkforceManagement projectData={selectedProject} />;
-      case 'materials':
+      case "materials":
         return <MaterialsManagement projectData={selectedProject} />;
-      case 'budget':
+      case "budget":
         return <BudgetManagement projectData={selectedProject} />;
       default:
         return (
@@ -62,14 +62,20 @@ function App() {
                 <div className="space-y-4">
                   <div>
                     <div className="flex justify-between mb-2">
-                      <span className="text-sm text-muted-foreground">Spent</span>
+                      <span className="text-sm text-muted-foreground">
+                        Spent
+                      </span>
                       <span className="text-sm font-medium">
                         ${(selectedProject.budget.spent / 1000000).toFixed(1)}M
                       </span>
                     </div>
-                    <Progress value={
-                      (selectedProject.budget.spent / selectedProject.budget.total) * 100
-                    } />
+                    <Progress
+                      value={
+                        (selectedProject.budget.spent /
+                          selectedProject.budget.total) *
+                        100
+                      }
+                    />
                   </div>
                   <div className="flex justify-between text-sm">
                     <span className="text-muted-foreground">Total Budget</span>
@@ -90,17 +96,25 @@ function App() {
                 <div className="space-y-4">
                   <div>
                     <div className="flex justify-between mb-2">
-                      <span className="text-sm text-muted-foreground">Active Workers</span>
+                      <span className="text-sm text-muted-foreground">
+                        Active Workers
+                      </span>
                       <span className="text-sm font-medium">
                         {selectedProject.workforce.active}
                       </span>
                     </div>
-                    <Progress value={
-                      (selectedProject.workforce.active / selectedProject.workforce.total) * 100
-                    } />
+                    <Progress
+                      value={
+                        (selectedProject.workforce.active /
+                          selectedProject.workforce.total) *
+                        100
+                      }
+                    />
                   </div>
                   <div className="flex justify-between text-sm">
-                    <span className="text-muted-foreground">Efficiency Rate</span>
+                    <span className="text-muted-foreground">
+                      Efficiency Rate
+                    </span>
                     <span className="font-medium">
                       {selectedProject.workforce.efficiency}%
                     </span>
@@ -118,17 +132,25 @@ function App() {
                 <div className="space-y-4">
                   <div>
                     <div className="flex justify-between mb-2">
-                      <span className="text-sm text-muted-foreground">Delivered</span>
+                      <span className="text-sm text-muted-foreground">
+                        Delivered
+                      </span>
                       <span className="text-sm font-medium">
                         {selectedProject.materials.delivered} items
                       </span>
                     </div>
-                    <Progress value={
-                      (selectedProject.materials.delivered / selectedProject.materials.ordered) * 100
-                    } />
+                    <Progress
+                      value={
+                        (selectedProject.materials.delivered /
+                          selectedProject.materials.ordered) *
+                        100
+                      }
+                    />
                   </div>
                   <div className="flex justify-between text-sm">
-                    <span className="text-muted-foreground">Pending Delivery</span>
+                    <span className="text-muted-foreground">
+                      Pending Delivery
+                    </span>
                     <span className="font-medium">
                       {selectedProject.materials.pending} items
                     </span>
@@ -146,7 +168,9 @@ function App() {
                 <div className="space-y-4">
                   <div>
                     <div className="flex justify-between mb-2">
-                      <span className="text-sm text-muted-foreground">Progress</span>
+                      <span className="text-sm text-muted-foreground">
+                        Progress
+                      </span>
                       <span className="text-sm font-medium">
                         {selectedProject.timeline.progress}%
                       </span>
@@ -154,7 +178,9 @@ function App() {
                     <Progress value={selectedProject.timeline.progress} />
                   </div>
                   <div className="flex justify-between text-sm">
-                    <span className="text-muted-foreground">Days Remaining</span>
+                    <span className="text-muted-foreground">
+                      Days Remaining
+                    </span>
                     <span className="font-medium">
                       {selectedProject.timeline.daysLeft} days
                     </span>
@@ -179,7 +205,7 @@ function App() {
         >
           <Menu className="h-5 w-5" />
         </Button>
-        
+
         <div className="flex items-center gap-2 mr-4">
           <Building2 className="h-6 w-6" />
           <span className="font-semibold text-lg">Construction AI</span>
@@ -206,11 +232,7 @@ function App() {
 
         <div className="ml-auto flex items-center gap-4">
           <div className="w-96">
-            <Input
-              type="search"
-              placeholder="Search..."
-              className="w-full"
-            />
+            <Input type="search" placeholder="Search..." className="w-full" />
           </div>
           <Button variant="ghost" size="icon">
             <Bell className="h-5 w-5" />
@@ -255,9 +277,7 @@ function App() {
         </AnimatePresence>
 
         {/* Main Content */}
-        <main className="flex-1 p-6">
-          {renderPage()}
-        </main>
+        <main className="flex-1 p-6">{renderPage()}</main>
       </div>
     </div>
   );
