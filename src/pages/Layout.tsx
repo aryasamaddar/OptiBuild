@@ -12,6 +12,7 @@ import {
   Package,
   Wallet,
   LayoutDashboard,
+  Calendar
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -38,6 +39,7 @@ export const Layout = ()=> {
     { id: "workforce", name: "Workforce", icon: Users,value: 'workforce' },
     { id: "materials", name: "Materials", icon: Package, value: 'materials' },
     { id: "budget", name: "Budget", icon: Wallet , value: 'budget'},
+    { id: "timeline", name: "Timeline", icon: Calendar, value: 'timeline'},
   ];
   return(
   <div className="min-h-screen bg-background w-screen">
