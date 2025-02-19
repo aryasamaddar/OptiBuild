@@ -3,6 +3,7 @@ import { Dashboard } from "./pages/Dashboard";
 import { MaterialsManagement } from "@/pages/MaterialsManagement";
 import { WorkforceManagement } from "@/pages/WorkforceManagement";
 import { Layout } from "./pages/Layout";
+import  TimelinePage  from "./pages/timeline";
 import { ProjectContextProvider } from "./Context/projectContext";
 import { Routes , Route, BrowserRouter } from "react-router-dom";
 export default function App ()  {
@@ -15,6 +16,7 @@ export default function App ()  {
                     <Route path='/workforce' element={<WorkforceManagement/>}/>
                     <Route path='/materials' element={<MaterialsManagement/>}/> 
                     <Route path='/budget' element={<BudgetManagement/>}/>
+                    <Route path='/timeline' element={<TimelinePage/>}/>
                 </Route>
             </Routes>
             </BrowserRouter>
