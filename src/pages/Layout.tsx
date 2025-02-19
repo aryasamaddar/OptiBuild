@@ -197,24 +197,18 @@ function App() {
     <div className="min-h-screen bg-background">
       {/* Top Navigation Bar */}
       <header className="h-14 border-b flex items-center px-4 bg-background">
-        {/* <Button
+        <Button
           variant="outline"
           size="icon"
           onClick={() => setIsSidebarOpen(!isSidebarOpen)}
-          className="mr-4"
+          className="mr-4"  
         >
-          <Menu className="h-5 w-5 text-primary" />
-        </Button> */}
-        <Button
-          size="sm"
-          onClick={() => setIsSidebarOpen(!isSidebarOpen)}
-        >
-          <Menu/>
+          <Menu className="h-5 w-5" />
         </Button>
 
         <div className="flex items-center gap-2 mr-4">
-          <Building2 className="h-6 w-6 ml-2" />
-          <span className="font-semibold text-lg">OptiBuild</span>
+          <Building2 className="h-6 w-6" />
+          <span className="font-semibold text-lg">Construction AI</span>
         </div>
 
         <DropdownMenu>
