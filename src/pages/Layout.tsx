@@ -29,6 +29,7 @@ type Page = "dashboard" | "workforce" | "materials" | "budget";
 
 export const Layout = ()=> {
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
+  const [currentNav, setCurrentNav] = useState(false);
   // const [selectedProject, setSelectedProject] = useState(projects[0]);
   // const [currentPage, setCurrentPage] = useState<Page>("dashboard");
   const {projectData, setProjectData} = useContext(ProjectContext);
@@ -107,12 +108,14 @@ export const Layout = ()=> {
                       <NavLink
                         key={item.id}
                         to={item.value}
-                        className = {({isActive}) => isActive ? "bg-secondary text-secondary-foreground shadow-sm hover:bg-secondary/80" : "hover:bg-accent hover:text-accent-foreground text-secondary"}
+                        className={({ isActive }) => (isActive ? "active" : "inactive")}
                       >
-                      <Button variant="secondary" className="w-full justify-start">
-                        <Icon className="mr-2 h-5 w-5" />
-                        {item.name}
-                      </Button>
+                        {({ isActive }) => (
+                          <Button variant={isActive ? "secondary" : "ghost"} className="w-full justify-start">
+                            <Icon className="mr-2 h-5 w-5" />
+                            {item.name}
+                          </Button>
+                        )}
                       </NavLink>
                     );
                   })}
