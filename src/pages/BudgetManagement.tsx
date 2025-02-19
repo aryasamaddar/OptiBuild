@@ -1,12 +1,15 @@
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Progress } from "@/components/ui/progress";
+import { useContext } from "react";
+import { ProjectContext } from "@/Context/projectContext";
 
 interface BudgetManagementProps {
   projectData: any;
 }
 
-export function BudgetManagement({ projectData }: BudgetManagementProps) {
+export function BudgetManagement() {
+  const { projectData, setProjectData } = useContext(ProjectContext);
   const { budget } = projectData;
 
   const formatCurrency = (amount: number) => {

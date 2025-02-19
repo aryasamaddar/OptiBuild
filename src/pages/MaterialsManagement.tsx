@@ -2,12 +2,14 @@ import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Progress } from "@/components/ui/progress";
-
+import { ProjectContext } from "@/Context/projectContext";
+import { useContext } from "react";
 interface MaterialsManagementProps {
   projectData: any;
 }
 
-export function MaterialsManagement({ projectData }: MaterialsManagementProps) {
+export function MaterialsManagement() {
+  const {projectData , setProjectData} = useContext(ProjectContext);
   const { materials } = projectData;
 
   const getStatusColor = (status: string) => {
