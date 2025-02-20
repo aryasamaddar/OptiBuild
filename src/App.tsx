@@ -6,11 +6,13 @@ import { Layout } from "./pages/Layout";
 import  TimelinePage  from "./pages/timeline";
 import { ProjectContextProvider } from "./Context/projectContext";
 import { Routes , Route, BrowserRouter } from "react-router-dom";
+import { NewProject } from "./pages/CreateProject";
 export default function App ()  {
     return(
         <ProjectContextProvider>
             <BrowserRouter>
             <Routes>
+                <Route path='/create' element={ <NewProject />} />
                 <Route path='/' element={<Layout/>}>
                     <Route index element={<Dashboard/>}/>
                     <Route path='/workforce' element={<WorkforceManagement/>}/>

@@ -7,12 +7,12 @@ import {
   Bell,
   Settings,
   HelpCircle,
-  Search,
   Users,
   Package,
   Wallet,
   LayoutDashboard,
-  Calendar
+  Calendar,
+  CirclePlus
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -22,18 +22,16 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { projects, getProject } from "@/lib/mock-data";
+import { projects } from "@/lib/mock-data";
 import { ProjectContext } from "../Context/projectContext";
-import { NavLink, Outlet } from "react-router-dom";
+import { NavLink, Outlet, useNavigate } from "react-router-dom";
 
-type Page = "dashboard" | "workforce" | "materials" | "budget";
+// type Page = "dashboard" | "workforce" | "materials" | "budget";
 
 export const Layout = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
-  const [currentNav, setCurrentNav] = useState(false);
-  // const [selectedProject, setSelectedProject] = useState(projects[0]);
-  // const [currentPage, setCurrentPage] = useState<Page>("dashboard");
   const { projectData, setProjectData } = useContext(ProjectContext);
+  const navigate = useNavigate();
   const selectedProject = projectData;
   const navItems = [
     { id: "dashboard", name: "Dashboard", icon: LayoutDashboard ,value: ''},
@@ -73,13 +71,17 @@ export const Layout = () => {
             ))}
           </DropdownMenuContent>
         </DropdownMenu>
+        <Button variant="ghost" className="flex gap-2 ml-2" onClick={() => navigate("/create")} >
+          <CirclePlus/>
+          New Project
+          </Button>
 
         <div className="ml-auto flex items-center gap-4">
           <div className="w-96">
             <Input type="search" placeholder="Search..." className="w-full" />
           </div>
           <Button variant="ghost" size="icon">
-            <Bell className="h-5 w-5" />
+            <Bell className="h-5 w-5"/>
           </Button>
           <Button variant="ghost" size="icon">
             <Settings className="h-5 w-5" />
