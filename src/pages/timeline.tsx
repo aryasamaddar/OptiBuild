@@ -1,9 +1,10 @@
 import React, { useState } from "react";
-import { Calendar, BarChart2, Construction } from "lucide-react";
+import { Calendar, BarChart2, Construction, ClipboardList } from "lucide-react";
 import { Timeline } from "../components/Timeline";
 import { Analytics } from "../components/Analytics";
+import { TaskUpdate } from "../components/TaskUpdate";
 
-const tasks: {
+const initialTasks: {
   id: string;
   name: string;
   startDate: string;
@@ -71,15 +72,46 @@ const milestones: {
   },
 ];
 
-function TimelinePage() {
-  const [currentView, setCurrentView] = useState<"timeline" | "analytics">(
-    "analytics"
-  );
+type View = "timeline" | "analytics" | "update";
+
+function App() {
+  const [currentView, setCurrentView] = useState<View>("update");
+  const [tasks, setTasks] = useState(initialTasks);
+
+  const handleTaskUpdate = (
+    taskId: string,
+    newStatus: (typeof tasks)[0]["status"]
+  ) => {
+    setTasks((prevTasks) =>
+      prevTasks.map((task) =>
+        task.id === taskId ? { ...task, status: newStatus } : task
+      )
+    );
+  };
+
+  // Get the current path
+  const path = window.location.pathname;
+
+  // Set the view based on the path
+  React.useEffect(() => {
+    if (path === "/update") {
+      setCurrentView("update");
+    } else if (path === "/analytics") {
+      setCurrentView("analytics");
+    } else {
+      setCurrentView("timeline");
+    }
+  }, [path]);
+
+  const navigate = (view: View) => {
+    window.history.pushState({}, "", view === "timeline" ? "/" : `/${view}`);
+    setCurrentView(view);
+  };
 
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Header */}
-      <header className="bg-white border-b border-gray-200">
+      <header className="bg-white border-b border-gray-200 sticky top-0 z-10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center">
@@ -90,7 +122,7 @@ function TimelinePage() {
             </div>
             <div className="flex items-center space-x-4">
               <button
-                onClick={() => setCurrentView("timeline")}
+                onClick={() => navigate("timeline")}
                 className={`flex items-center px-4 py-2 rounded-md text-sm font-medium ${
                   currentView === "timeline"
                     ? "bg-blue-600 text-white"
@@ -101,7 +133,7 @@ function TimelinePage() {
                 Timeline
               </button>
               <button
-                onClick={() => setCurrentView("analytics")}
+                onClick={() => navigate("analytics")}
                 className={`flex items-center px-4 py-2 rounded-md text-sm font-medium ${
                   currentView === "analytics"
                     ? "bg-blue-600 text-white"
@@ -111,6 +143,17 @@ function TimelinePage() {
                 <BarChart2 className="h-4 w-4 mr-2" />
                 Analytics
               </button>
+              <button
+                onClick={() => navigate("update")}
+                className={`flex items-center px-4 py-2 rounded-md text-sm font-medium ${
+                  currentView === "update"
+                    ? "bg-blue-600 text-white"
+                    : "bg-white border border-gray-300 text-gray-700 hover:bg-gray-50"
+                }`}
+              >
+                <ClipboardList className="h-4 w-4 mr-2" />
+                Update Tasks
+              </button>
             </div>
           </div>
         </div>
@@ -119,12 +162,23 @@ function TimelinePage() {
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {currentView === "timeline" ? (
           <Timeline tasks={tasks} milestones={milestones} />
+        ) : currentView === "analytics" ? (
+          <Analytics />
+        ) : (
+          <TaskUpdate
+            tasks={tasks}
+            onUpdateTask={handleTaskUpdate}
+            allTasks={tasks}
+          />
+        )}
+        {/* {currentView === "timeline" ? (
+          <Timeline tasks={tasks} milestones={milestones} />
         ) : (
           <Analytics />
-        )}
+        )} */}
       </main>
     </div>
   );
 }
 
-export default TimelinePage;
+export default App;
