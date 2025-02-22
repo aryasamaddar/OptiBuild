@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState } from "react";
+import { createContext, useState } from "react";
 import { projects } from "../lib/mock-data";
 
 interface ProjectContextType {

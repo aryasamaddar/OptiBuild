@@ -4,12 +4,12 @@ import { Badge } from "@/components/ui/badge";
 import { Progress } from "@/components/ui/progress";
 import { ProjectContext } from "@/Context/projectContext";
 import { useContext } from "react";
-interface MaterialsManagementProps {
-  projectData: any;
-}
+// interface MaterialsManagementProps {
+//   projectData: any;
+// }
 
 export function MaterialsManagement() {
-  const {projectData , setProjectData} = useContext(ProjectContext);
+  const {projectData } = useContext(ProjectContext);
   const { materials } = projectData;
 
   const getStatusColor = (status: string) => {

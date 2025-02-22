@@ -3,12 +3,12 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Progress } from "@/components/ui/progress";
 import { useContext } from "react";
 import { ProjectContext } from "@/Context/projectContext";
-interface WorkforceManagementProps {
-  projectData: any;
-}
+// interface WorkforceManagementProps {
+//   projectData: any;
+// }
 
 export function WorkforceManagement() {
-  const {projectData, setProjectData} = useContext(ProjectContext);
+  const {projectData} = useContext(ProjectContext);
   const { workforce } = projectData;
 
   return (

@@ -4,12 +4,12 @@ import { Progress } from "@/components/ui/progress";
 import { useContext } from "react";
 import { ProjectContext } from "@/Context/projectContext";
 
-interface BudgetManagementProps {
-  projectData: any;
-}
+// interface BudgetManagementProps {
+//   projectData: any;
+// }
 
 export function BudgetManagement() {
-  const { projectData, setProjectData } = useContext(ProjectContext);
+  const { projectData } = useContext(ProjectContext);
   const { budget } = projectData;
 
   const formatCurrency = (amount: number) => {

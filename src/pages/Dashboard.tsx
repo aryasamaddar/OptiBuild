@@ -1,36 +1,36 @@
-import { useState, useContext } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import {
-  Building2,
-  Menu,
-  ChevronDown,
-  Bell,
-  Settings,
-  HelpCircle,
-  Search,
-  Users,
-  Package,
-  Wallet,
-  LayoutDashboard,
-} from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
+import { useContext } from "react";
+// import { motion, AnimatePresence } from "framer-motion";
+// import {
+//   Building2,
+//   Menu,
+//   ChevronDown,
+//   Bell,
+//   Settings,
+//   HelpCircle,
+//   Search,
+//   Users,
+//   Package,
+//   Wallet,
+//   LayoutDashboard,
+// } from "lucide-react";
+// import { Button } from "@/components/ui/button";
+// import { Input } from "@/components/ui/input";
+// import {
+//   DropdownMenu,
+//   DropdownMenuContent,
+//   DropdownMenuItem,
+//   DropdownMenuTrigger,
+// } from "@/components/ui/dropdown-menu";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Progress } from "@/components/ui/progress";
-import { WorkforceManagement } from "@/pages/WorkforceManagement";
-import { MaterialsManagement } from "@/pages/MaterialsManagement";
-import { BudgetManagement } from "@/pages/BudgetManagement";
-import { projects, getProject } from "@/lib/mock-data";
+// import { WorkforceManagement } from "@/pages/WorkforceManagement";
+// import { MaterialsManagement } from "@/pages/MaterialsManagement";
+// import { BudgetManagement } from "@/pages/BudgetManagement";
+// import { projects, getProject } from "@/lib/mock-data";
 import { ProjectContext } from "../Context/projectContext";
 
 export const Dashboard = () => {
-    const {projectData, setProjectData} = useContext(ProjectContext);
+    const {projectData } = useContext(ProjectContext);
     const selectedProject = projectData;
 return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">

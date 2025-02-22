@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { Calendar, BarChart2, Construction, ClipboardList } from "lucide-react";
 import { Timeline } from "../components/Timeline";
 import { Analytics } from "../components/Analytics";
 import { TaskUpdate } from "../components/TaskUpdate";
+import React from "react";
 
 const initialTasks: {
   id: string;
