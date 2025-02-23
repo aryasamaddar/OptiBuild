@@ -2,6 +2,7 @@ import { BudgetManagement } from "@/pages/BudgetManagement";
 import { Dashboard } from "./pages/Dashboard";
 import { MaterialsManagement } from "@/pages/MaterialsManagement";
 import { WorkforceManagement } from "@/pages/WorkforceManagement";
+import EquipmentManagement from "./pages/Equipment-management";
 import  Orders  from "@/pages/Order";
 import SiteConditions from "./pages/Site-condition";
 import { Layout } from "./pages/Layout";
@@ -17,6 +18,7 @@ export default function App ()  {
                 <Route path='/create' element={ <NewProject />} />
                 <Route path='/' element={<Layout/>}>
                     <Route index element={<Dashboard/>}/>
+                    <Route path='/equipment' element={<EquipmentManagement/>}/>
                     <Route path='/site-conditions' element={<SiteConditions/>}/>
                     <Route path='/orders' element={<Orders/>}/> 
                     <Route path='/workforce' element={<WorkforceManagement/>}/>
