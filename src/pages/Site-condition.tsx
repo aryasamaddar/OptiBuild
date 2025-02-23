@@ -3,7 +3,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert"
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
-import { Cloud, Umbrella, Sun, Wind, CloudLightning, Truck, Calendar, Bell, MessageSquare , CloudRain} from "lucide-react"
+import { Cloud, Sun, Wind, CloudLightning, Truck, Calendar, Bell, MessageSquare } from "lucide-react"
 
 const siteConditions = [
   {
