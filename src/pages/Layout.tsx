@@ -14,6 +14,8 @@ import {
   Calendar,
   CirclePlus,
   Truck,
+  CloudRain,
+  
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -41,6 +43,7 @@ export const Layout = () => {
     { id: "budget", name: "Budget", icon: Wallet , value: 'budget'},
     { id: "timeline", name: "Timeline", icon: Calendar, value: 'timeline'},
     { id: "orders", name: "Orders", icon: Truck, value: 'orders'},
+    { id: "site-conditions", name: "Site Conditions", icon: CloudRain, value: 'site-conditions'},
   ];
   return (
     <div className="min-h-screen bg-background w-screen">
