@@ -45,6 +45,7 @@ export const Layout = () => {
     { id: "orders", name: "Orders", icon: Truck, value: 'orders'},
     { id: "site-conditions", name: "Site Conditions", icon: CloudRain, value: 'site-conditions'},
     { id: "equipment", name: "Equipment Management", icon: Drill, value: 'equipment'},
+    { id: "workforce-management", name: "Workforce Management", icon: Users, value: 'workforce-management'},
   ];
   return (
     <div className="min-h-screen bg-background w-screen">
