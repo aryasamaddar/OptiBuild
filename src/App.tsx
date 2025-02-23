@@ -2,6 +2,7 @@ import { BudgetManagement } from "@/pages/BudgetManagement";
 import { Dashboard } from "./pages/Dashboard";
 import { MaterialsManagement } from "@/pages/MaterialsManagement";
 import { WorkforceManagement } from "@/pages/WorkforceManagement";
+import  Orders  from "@/pages/Order";
 import { Layout } from "./pages/Layout";
 import  TimelinePage  from "./pages/timeline";
 import { ProjectContextProvider } from "./Context/projectContext";
@@ -15,6 +16,7 @@ export default function App ()  {
                 <Route path='/create' element={ <NewProject />} />
                 <Route path='/' element={<Layout/>}>
                     <Route index element={<Dashboard/>}/>
+                    <Route path='/orders' element={<Orders/>}/> 
                     <Route path='/workforce' element={<WorkforceManagement/>}/>
                     <Route path='/materials' element={<MaterialsManagement/>}/> 
                     <Route path='/budget' element={<BudgetManagement/>}/>

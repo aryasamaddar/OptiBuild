@@ -12,7 +12,8 @@ import {
   Wallet,
   LayoutDashboard,
   Calendar,
-  CirclePlus
+  CirclePlus,
+  Truck,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -39,6 +40,7 @@ export const Layout = () => {
     { id: "materials", name: "Materials", icon: Package, value: 'materials' },
     { id: "budget", name: "Budget", icon: Wallet , value: 'budget'},
     { id: "timeline", name: "Timeline", icon: Calendar, value: 'timeline'},
+    { id: "orders", name: "Orders", icon: Truck, value: 'orders'},
   ];
   return (
     <div className="min-h-screen bg-background w-screen">
