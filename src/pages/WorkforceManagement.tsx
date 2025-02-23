@@ -51,7 +51,7 @@ const shortageData = [
 ]
 
 export default function WorkforceManagementDashboard() {
-  const [workforce, setWorkforce] = useState(workforceData)
+  const [workforce] = useState(workforceData)
   const [filteredWorkforce, setFilteredWorkforce] = useState(workforceData)
   const [riskScore, setRiskScore] = useState(65)
   const [currentPage, setCurrentPage] = useState(1)
