@@ -1,4 +1,3 @@
-
 import {
   Calendar,
   Clock,
@@ -166,7 +165,7 @@ export function Timeline({ tasks, milestones }: TimelineProps) {
                   </div>
                   <div className="w-full bg-gray-200 rounded-full h-2">
                     <div
-                      className="bg-blue-600 rounded-full h-2"
+                      className="bg-black rounded-full h-2"
                       style={{ width: `${task.progress}%` }}
                     />
                   </div>

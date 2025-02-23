@@ -114,19 +114,13 @@ function App() {
       {/* Header */}
       <header className="bg-white border-b border-gray-200 sticky top-0 z-10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center">
-              <Construction className="h-8 w-8 text-blue-600" />
-              <h1 className="ml-2 text-2xl font-bold text-gray-900">
-                Construction Project
-              </h1>
-            </div>
+          <div className="flex items-center justify-end">
             <div className="flex items-center space-x-4">
               <button
                 onClick={() => navigate("timeline")}
                 className={`flex items-center px-4 py-2 rounded-md text-sm font-medium ${
                   currentView === "timeline"
-                    ? "bg-blue-600 text-white"
+                    ? "bg-black text-white"
                     : "bg-white border border-gray-300 text-gray-700 hover:bg-gray-50"
                 }`}
               >
@@ -137,7 +131,7 @@ function App() {
                 onClick={() => navigate("analytics")}
                 className={`flex items-center px-4 py-2 rounded-md text-sm font-medium ${
                   currentView === "analytics"
-                    ? "bg-blue-600 text-white"
+                    ? "bg-black text-white"
                     : "bg-white border border-gray-300 text-gray-700 hover:bg-gray-50"
                 }`}
               >
@@ -148,7 +142,7 @@ function App() {
                 onClick={() => navigate("update")}
                 className={`flex items-center px-4 py-2 rounded-md text-sm font-medium ${
                   currentView === "update"
-                    ? "bg-blue-600 text-white"
+                    ? "bg-black text-white"
                     : "bg-white border border-gray-300 text-gray-700 hover:bg-gray-50"
                 }`}
               >
